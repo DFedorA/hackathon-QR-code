@@ -1,0 +1,9 @@
+
+<nav class="navbar " *ngIf="auth.isAuthenticated()">
+  <a href="#" (click)="logout($event)">Выйти</a>
+</nav>
+<h1 class="home-title">
+
+
+  <span>Добро пожаловать, {{email}}</span>
+</h1>

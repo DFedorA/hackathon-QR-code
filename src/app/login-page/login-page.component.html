@@ -1,0 +1,107 @@
+
+<div class="wrapper">
+  <div [style.transform]="prism" class="rec-prism">
+    <div class="face face-top">
+      <div class="content">
+        <div class="qr_code">
+          <ngx-qrcode
+            [elementType]="elementType"
+            [value] = "this.valueToken"
+            cssClass = "aclass"
+            errorCorrectionLevel = "L">
+          </ngx-qrcode>
+        </div>
+        <span class="psw" (click)="showLogin()">Вход по паролю  </span>
+        <span class="psw" (click)="showSignup()">Регистрация </span>
+      </div>
+    </div>
+    <div class="face face-front">
+      <div class="content">
+        <h2>Вход</h2>
+        <span class="psw" *ngIf="auth.error$ | async as error">{{error}}</span>
+        <span class="psw" *ngIf="message">{{message}}</span>
+        <form  [formGroup]="form" (ngSubmit)="submit()">
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email" formControlName="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="password" name="password" placeholder="password" autocomplete="new-password" formControlName="password">
+            <label>Пароль</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit">
+          </div>
+
+          <span class="psw" (click)="showQR()">Вход по QR-коду  </span>
+          <span class="psw" (click)="showSignup()">Регистрация </span>
+        </form>
+      </div>
+    </div>
+    <div class="face face-back">
+      <div class="content">
+        <h2>Забыли пароль?</h2>
+        <small>Введите свой адрес электронной почты, чтобы мы могли отправить вам ссылку для сброса пароля</small>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" (click)="showThankYou()">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="face face-right">
+      <div class="content">
+        <h2>Регистрация</h2>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="password" name="password" placeholder="password" autocomplete="new-password">
+            <label>Пароль</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" (click)="showThankYou()">
+          </div>
+          <span class="singin" (click)="showLogin()">Уже зарегистрированы? Войти</span>
+          <span class="psw" (click)="showQR()">Вход по QR-коду  </span>
+        </form>
+      </div>
+    </div>
+    <div class="face face-left">
+      <div class="content">
+        <h2>Contact us</h2>
+        <form onsubmit="event.preventDefault()">
+          <div class="field-wrapper">
+            <input type="text" name="name" placeholder="name">
+            <label>Name</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="text" name="email" placeholder="email">
+            <label>e-mail</label>
+          </div>
+          <div class="field-wrapper">
+            <textarea placeholder="your message"></textarea>
+            <label>your message</label>
+          </div>
+          <div class="field-wrapper">
+            <input type="submit" (click)="showThankYou()">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="face face-bottom">
+      <div class="content">
+        <div class="thank-you-msg">
+          Thank you!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet> </router-outlet>

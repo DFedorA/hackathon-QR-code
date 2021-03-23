@@ -1,0 +1,51 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "ecmaFeatures": {}
+    },
+    "ignorePatterns": ["**/*.png","**/*.md","**/*.json","**/*.ico","**/*.ico","**/*.html","**/*.less" ],
+    "rules": {
+        "semi": [
+          "error",
+          "always"
+    ],
+        "quotes": [
+          "error",
+          "double"
+    ],
+        "eol-last": [
+          "error",
+          "always"
+    ],
+        "no-useless-rename": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-numeric-literals": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
+        "prefer-destructuring": "error",
+        "object-shorthand": [
+          "error",
+          "consistent"
+    ],
+        "eqeqeq": [
+          "error",
+          "always"
+    ],
+        "comma-dangle": [
+          "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
+      }
+    ]
+    },
+    "env": {
+        "es6": true
+    }
+}

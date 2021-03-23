@@ -1,0 +1,12 @@
+stages:
+    - ESLint
+
+static test:
+    stage: ESLint
+    image: pipelinecomponents/eslint:latest
+    script:
+        - echo "Triggered by commit ${CI_COMMIT_MESSAGE} from branch ${CI_COMMIT_BRANCH}"
+        - eslint -c eslintrc.json --fix --color '**/**'
+    tags:
+        - eslint   
+
